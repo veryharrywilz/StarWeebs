@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_14_190322) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_15_171107) do
   create_table "episodes", force: :cascade do |t|
     t.string "link"
     t.string "title"
@@ -28,6 +28,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_190322) do
     t.datetime "updated_at", null: false
     t.index ["episode_id"], name: "index_favorites_on_episode_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "newsletters", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.boolean "sent", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

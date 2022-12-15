@@ -14,10 +14,7 @@ const [episodes, setEpisodes] = useState([])
     const episodeElements = episodes.map(episode => {
         if (episodes.length > 0) {
         return(
-            <>
-            <EpisodeCard episode={episode}/>
-            <br />
-            </>
+            <EpisodeCard episode={episode} key={episode.id}/>
         )
         } else {
             return null
@@ -28,7 +25,9 @@ const [episodes, setEpisodes] = useState([])
     return (
         <div>
         <h1>Episodes</h1>
-        {episodeElements}
+        <div className="episodeContainer">
+        {episodeElements.reverse()}
+        </div>
         </div>
     )
 }
