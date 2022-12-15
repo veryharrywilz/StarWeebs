@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :newsletters
   resources :favorites
   resources :episodes, only: [:index, :show, :create, :update]
   resources :users, only: [:index, :create]
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   get "/me", to: "users#show"
+
+  post "/sendit", to: "users#send_email"
 
   # post "createaccount", to: "users#create"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

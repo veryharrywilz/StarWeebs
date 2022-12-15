@@ -27,18 +27,6 @@ function NavBar({handleLogout, user}) {
           Login 
         </NavLink>
         </button>
-        <button>
-        <NavLink
-          to="/episodes"
-
-
-        //   activeStyle={{
-        //     background: "orange",
-        //   }}
-        >
-          Episodes 
-        </NavLink>
-        </button>
         {
           user !== null ?
         <button>

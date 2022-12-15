@@ -51,9 +51,9 @@ function Login ({user, loginUser}) {
         fetch('/users', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({
+            body: JSON.stringify(
                 userObj
-            })
+            )
         })
         .then(resp => resp.json())
         .then(data => {

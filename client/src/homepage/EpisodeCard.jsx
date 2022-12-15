@@ -1,9 +1,10 @@
 function EpisodeCard ({episode}) {
     return(
-        <span>
-            <h3>{episode.title}</h3>
+        <div className="episodeCard">
+            <h3>Episode {episode.number}: {episode.title}</h3>
             <p>{episode.description}</p>
-        </span>
+            <a href={episode.link} className="link">Click to listen!</a>
+        </div>
     )
 }
 

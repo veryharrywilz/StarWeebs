@@ -12,9 +12,9 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-      user = User.find_by(id: session[:user_id])
+      # user = User.find_by(id: session[:user_id])
       session.delete :user_id
-      render json: user, status: 410
+      render json: {}, status: :no_content
   end
 
 end

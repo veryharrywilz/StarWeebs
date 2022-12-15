@@ -5,6 +5,8 @@ import Login from './profile/Login';
 import NavBar from './homepage/NavBar';
 import ProfilePage from "./profile/ProfilePage";
 import Episodes from "./homepage/Episodes";
+import About from "./homepage/About";
+import ContactUs from "./homepage/ContactUs";
 
 import {
   Route,
@@ -48,6 +50,8 @@ function App() {
           <Route exact path="/login" element={<Login loginUser={loginUser} user={user} />}></Route>
           <Route exact path="/profile" element={<ProfilePage user={user}/>}></Route>
           <Route exact path="/episodes" element={<Episodes />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/contactus" element={<ContactUs />} />
         </Routes>
       </div>
 

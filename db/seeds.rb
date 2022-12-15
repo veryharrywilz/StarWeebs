@@ -9,6 +9,11 @@
 puts "seeding users..."
 
 harrison = User.create(username: "harriwilson5534", password: "har123", avatar: "avatar", email: "harriwilson5534@gmail.com", hasVoted: false, isAdmin: true, newsletter: false, notifications: true)
+timmy = User.create(username: "timmy", password: "tim123", avatar: "avatar", email: "backyardfilms15@gmail.com", hasVoted: false, isAdmin: false, newsletter: false, notifications: true)
+aj = User.create(username: "ayjayran", password: "ayjay123", avatar: "avatar", email: "hdubsgaming@gmail.com", hasVoted: false, isAdmin: false, newsletter: false, notifications: true)
+
+
+
 
 puts "seeding episodes"
 

@@ -29,7 +29,10 @@ function ProfilePage({ user }) {
                     {
                         adminStatus ?
                             <>
+                                <h3>New Episode</h3>
                                 <NewEpisodeForm />
+                                <br />
+                                <h3>Send an email</h3>
                                 <NewEmailForm />
                             </>
                             : null
