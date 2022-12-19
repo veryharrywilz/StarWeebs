@@ -1,16 +1,22 @@
-import {useState, useEffect} from "react"
+import { useState, useEffect } from "react"
+import AvatarContainer from "./AvatarContainer"
 
-function Login ({user, loginUser}) {
-
+function Login({ user, loginUser }) {
 
     const [userName, setUserName] = useState("")
     const [userEmail, setEmail] = useState("")
     const [userPassword, setPassword] = useState("")
-    const [passwordConfirmation, setPasswordConfirmation] = useState("")
+    // const [passwordConfirmation, setPasswordConfirmation] = useState("")
     const [newsletterStatus, setNewsletterStatus] = useState(false)
     const [notificationStatus, setNotifications] = useState(false)
     const [loginUserName, setLoginUserName] = useState("")
     const [loginPassword, setLoginPassword] = useState("")
+    const [loginState, setLoginState] = useState(true)
+
+
+
+
+
 
     const userObj = {
         username: userName,
@@ -23,10 +29,10 @@ function Login ({user, loginUser}) {
         newsletter: newsletterStatus,
         notifications: notificationStatus
     }
-    
 
 
-    function handleLogin (e) {
+
+    function handleLogin(e) {
         e.preventDefault()
         fetch("/login", {
             method: 'POST',
@@ -36,11 +42,11 @@ function Login ({user, loginUser}) {
                 password: loginPassword
             })
         })
-        .then(resp => resp.json())
-        .then(data => {
-            console.log(data)
-            loginUser(data)
-        })
+            .then(resp => resp.json())
+            .then(data => {
+                console.log(data)
+                loginUser(data)
+            })
         e.target.reset()
     }
 
@@ -55,56 +61,72 @@ function Login ({user, loginUser}) {
                 userObj
             )
         })
-        .then(resp => resp.json())
-        .then(data => {
-            console.log("submitted")
-        })
-        
+            .then(resp => resp.json())
+            .then(data => {
+                console.log("submitted")
+            })
+
         console.log(user)
     }
 
-    function handleNewsClick () {
+    function handleNewsClick() {
         setNewsletterStatus(newsletterStatus => !newsletterStatus)
     }
 
-    function handleNotificationClick () {
+    function handleNotificationClick() {
         setNotifications(notificationStatus => !notificationStatus)
     }
 
     return (
-    <div>
-        <form onSubmit={handleLogin}>
-            <h3>Have an account? Login!</h3>
-            <p>Username</p>
-            <input type="text" name="loginUsername" onChange={e => setLoginUserName(e.target.value)}></input>
-            <p>Password</p>
-            <input type="text" name="loginPassword" onChange={e => setLoginPassword(e.target.value)}></input>
+        <div> {loginState ?
+            <form onSubmit={handleLogin}>
+                <h3>Have an account? Login!</h3>
+                <p>Username</p>
+                <input type="text" name="loginUsername" onChange={e => setLoginUserName(e.target.value)}></input>
+                <p>Password</p>
+                <input type="text" name="loginPassword" onChange={e => setLoginPassword(e.target.value)}></input>
+                <br />
+                <br />
+                <button type="submit">Login</button>
+            </form>
+            : <>
+                <br />
+                <br />
+                <button onClick={e => setLoginState(loginState => !loginState)}>Back to Login</button>
+            </>
+        }
             <br />
             <br />
-            <button type="submit">Login</button>
-        </form>
-        <br />
             <br />
-            <br />
-            <h3>Create an Account!</h3>
-        <form onSubmit={handleCreateAccount}>
-            <p>Create a Username</p>
-            <input type="text" name="username" onChange={e => setUserName(e.target.value)}/>
-            <p> Your email address</p>
-            <input type="text" name="email" onChange={e => setEmail(e.target.value)}/>
-            <p>Create a password</p>
-            <input type="text" name="password" onChange={e => setPassword(e.target.value)}></input>
-            <p>Confirm your password</p>
-            <input type="text" name="passwordConfirmation" onChange={e => setPasswordConfirmation(e.target.value)}></input>
-            <p>Would you like to subscribe to our Newsletter?</p>
-            Yes<input type="checkbox" name="newsLetterYes" onClick={e => handleNewsClick()}></input>
-            <p>Would you like to be notified when new Star Weebs episodes go live?</p>
-            Yes<input type="checkbox" name="notificationYes" onClick={e => handleNotificationClick()}></input>
-            <br />
-            <br />
-            <button>Create Account!</button>
-        </form>
-    </div>
+            
+
+            {
+                loginState ?
+                    <>
+                    <p>Need to create an account? Click here!</p>
+                    <button onClick={e => setLoginState(loginState => !loginState)}>Create Account!</button></> :
+                    <form onSubmit={handleCreateAccount}>
+                        <h3>Create an Account!</h3>
+                        <p>Username</p>
+                        <input type="text" name="username" onChange={e => setUserName(e.target.value)} />
+                        <p>Email address</p>
+                        <input type="text" name="email" onChange={e => setEmail(e.target.value)} />
+                        <p>Create a password</p>
+                        <input type="text" name="password" onChange={e => setPassword(e.target.value)}></input>
+                        {/* <p>Confirm your password</p>
+                        <input type="text" name="passwordConfirmation" onChange={e => setPasswordConfirmation(e.target.value)}></input> */}
+                        <p>Would you like to subscribe to our Newsletter?</p>
+                        Yes<input type="checkbox" name="newsLetterYes" onClick={e => handleNewsClick()}></input>
+                        <p>Would you like to be notified when new Star Weebs episodes go live?</p>
+                        Yes<input type="checkbox" name="notificationYes" onClick={e => handleNotificationClick()}></input>
+                        <AvatarContainer />
+                        <br />
+                        <br />
+                        <button>Create Account!</button>
+                        
+                    </form>
+            }
+        </div>
     )
 }
 

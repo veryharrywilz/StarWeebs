@@ -5,9 +5,9 @@ import NewEmailForm from "../admin components/NewEmailForm"
 function ProfilePage({ user }) {
     const [adminStatus, setAdminStatus] = useState(false)
 
-    function handleClick() {
-        console.log(adminStatus)
-    }
+    // function handleClick() {
+    //     console.log(adminStatus)
+    // }
 
     useEffect(() => {
         if (user !== null) {
@@ -21,7 +21,7 @@ function ProfilePage({ user }) {
 
     return (
         <div>
-            <button onClick={e => handleClick()}>Admin?</button>
+            {/* <button onClick={e => handleClick()}>Admin?</button> */}
             {user !== null ?
                 <div>
                     <h1>ProfilePage</h1>

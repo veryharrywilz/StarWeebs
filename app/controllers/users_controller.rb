@@ -12,8 +12,12 @@ class UsersController < ApplicationController
     end
 
     def show
-        user = User.find_by(id: session[:user_id])
-        render json: user, status: :ok 
+        # if session[:user_id]
+            user = User.find_by(id: session[:user_id])
+            render json: user, status: :ok 
+        # else
+            # head json: {id: 0}, status: :unauthorized
+        # end
     end
 
 

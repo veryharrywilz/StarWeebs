@@ -11,6 +11,11 @@ class EpisodesController < ApplicationController
         render json: ep, status: :created
     end
 
+    def featured
+        featureds = Episode.where(isFeatured: true)
+        render json: featureds, status: :ok 
+    end
+
     private
 
     def episode_params

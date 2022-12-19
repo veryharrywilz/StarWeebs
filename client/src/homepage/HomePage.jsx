@@ -1,9 +1,29 @@
-import React, { useEffect } from "react";
-
+import React, { useEffect, useState } from "react";
+import EpisodeCard from "./EpisodeCard";
 import HomePageNavBar from "./HomePageNavBar";
 
 
 function HomePage({ user, loginUser }) {
+    const [featuredEps, setFeaturedEps] = useState([])
+
+    useEffect(() => {
+        fetch("/featuredepisodes")
+            .then(resp => {
+                if (resp.ok) {
+                    resp.json()
+                        .then(data => {
+                            setFeaturedEps(data)
+                        })
+                }
+            })
+    }, [])
+
+    const featuredEpsElements = featuredEps.map(episode => {
+        return (
+            <EpisodeCard episode={episode} key={episode.title} />
+        )
+    })
+
     const Greeting = () => {
         if (user === null) {
             return (
@@ -26,6 +46,10 @@ function HomePage({ user, loginUser }) {
             <br />
             <HomePageNavBar />
             <Greeting />
+            <h2>Featured Episodes</h2>
+            <div className="episodeContainer">
+                {featuredEpsElements}
+            </div>
         </div>
     )
 }
