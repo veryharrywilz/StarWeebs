@@ -40,24 +40,26 @@
 .episodeCard {
   border-style: solid;
   width: 450px;
+  height: 300px;
   border-color: rgb(243, 243, 41);
+  border-radius: 8px;
+  display: inline-table;
+  margin: 10px;
+  box-shadow: 10px 5px 5px black;
 }
 
 .episodeContainer {
-  display: inline-grid;
-  column-gap: 20px;
-  row-gap: 20px;
-  justify-content: space-evenly;
-  grid-template-columns: 450px 450px 450px;
+  display: inline-block;
+  transform: translate(0%, 0%);
 }
 
 .link {
-  color:rgb(243, 243, 41);
+  color: rgb(243, 243, 41);
   font-weight: bold;
 }
 
 .episodeTitle {
-
+  font-weight: bold;
 }
 
 
@@ -79,13 +81,61 @@
   margin: 10px;
   border-style: solid;
   border-color: rgb(243, 243, 41);
+  border-radius: 8px;
+}
+
+/* PROFILE STYLING */
+.profilePicture {
+  width: 200px;
+  border-style: solid;
+  border-color: rgb(243, 243, 41);
+  border-radius: 8px;
+  text-align: left;
+  float: right;
+  position: absolute;
+  right: 2px;
+}
+
+/* NAVBAR */
+
+.navBar {
+  position: absolute;
+  float: right;
+  margin: 10px;
 }
 
 
 
+/* NEWS STORY */
 
+.newsContainer {
 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+  "1" "2" "3" "4" "5";
 
+}
 
+#harrisonStoryContainer {
+ display: inline-block;
+ grid-column-start: 2;
+ /* margin: 20px; */
+}
 
+#mollyStoryContainer {
+  display: inline-block;
+  grid-column-start: 3;
+}
 
+.harrisonStory {
+  border-style: solid;
+  width: 400px;
+  background-color: black;
+}
+
+.mollyStory {
+  border-style: solid;
+  width: 400px;
+  background-color: rgb(218, 143, 3);
+}

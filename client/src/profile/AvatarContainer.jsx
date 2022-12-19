@@ -1,6 +1,6 @@
 import AvatarSelectionCards from "./AvatarSelectionCards"
 
-function AvatarContainer() {
+function AvatarContainer({setUserAvatar}) {
 
     const luke = "https://media.gq-magazine.co.uk/photos/620529e268071f7ecff06fac/1:1/w_1080,h_1080,c_limit/100222_Bobba_hp.jpg"
     const deku = "https://i.pinimg.com/736x/1b/ab/c9/1babc93ad8ef07c0d11770dc42e718a2.jpg"
@@ -22,9 +22,8 @@ function AvatarContainer() {
     const avatarArray = [luke, deku, obiwan, luffy, ahsoka, mikasa, rex, eren, leia, allmight, vader, kageyama, boba, uraka, rebo, ash]
 
     const avatarElements = avatarArray.map((avatar) => {
-        console.log(avatar)
         return (
-            <AvatarSelectionCards avatar={avatar} key={avatar}/>
+            <AvatarSelectionCards setUserAvatar={setUserAvatar} avatar={avatar} key={avatar}/>
         )
     })
 

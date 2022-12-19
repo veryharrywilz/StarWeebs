@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 function NavBar({ handleLogout, user }) {
   return (
-    <div>
+    <div className="navBar">
       <button>
         <NavLink to="/">Home</NavLink>
       </button>

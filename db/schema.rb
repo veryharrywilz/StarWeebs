@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_15_171107) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_19_181926) do
   create_table "episodes", force: :cascade do |t|
     t.string "link"
     t.string "title"
@@ -28,6 +28,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_15_171107) do
     t.datetime "updated_at", null: false
     t.index ["episode_id"], name: "index_favorites_on_episode_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "news_stories", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "link"
+    t.string "image"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_news_stories_on_user_id"
   end
 
   create_table "newsletters", force: :cascade do |t|
@@ -53,4 +64,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_15_171107) do
 
   add_foreign_key "favorites", "episodes"
   add_foreign_key "favorites", "users"
+  add_foreign_key "news_stories", "users"
 end
