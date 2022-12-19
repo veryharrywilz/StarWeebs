@@ -14,7 +14,7 @@ class User < ApplicationRecord
         content = Content.new(type: 'text/plain', value: "#{mess}")
         mail = Mail.new(from, subject, to, content)
         
-        sg = SendGrid::API.new(api_key: "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")
+        # sg = SendGrid::API.new(api_key: "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")
         response = sg.client.mail._('send').post(request_body: mail.to_json)
         puts response.status_code
         puts response.body
