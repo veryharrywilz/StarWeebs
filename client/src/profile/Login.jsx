@@ -9,6 +9,7 @@ function Login({ user, loginUser }) {
     // const [passwordConfirmation, setPasswordConfirmation] = useState("")
     const [newsletterStatus, setNewsletterStatus] = useState(false)
     const [notificationStatus, setNotifications] = useState(false)
+    const [userAvatar, setUserAvatar] = useState("")
     const [loginUserName, setLoginUserName] = useState("")
     const [loginPassword, setLoginPassword] = useState("")
     const [loginState, setLoginState] = useState(true)
@@ -25,7 +26,7 @@ function Login({ user, loginUser }) {
         // password_confirmation: passwordConfirmation,
         isAdmin: false,
         hasVoted: false,
-        avatar: "avatar",
+        avatar: userAvatar,
         newsletter: newsletterStatus,
         notifications: notificationStatus
     }
@@ -119,7 +120,7 @@ function Login({ user, loginUser }) {
                         Yes<input type="checkbox" name="newsLetterYes" onClick={e => handleNewsClick()}></input>
                         <p>Would you like to be notified when new Star Weebs episodes go live?</p>
                         Yes<input type="checkbox" name="notificationYes" onClick={e => handleNotificationClick()}></input>
-                        <AvatarContainer />
+                        <AvatarContainer setUserAvatar={setUserAvatar}/>
                         <br />
                         <br />
                         <button>Create Account!</button>

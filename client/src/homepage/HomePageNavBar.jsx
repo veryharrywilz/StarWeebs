@@ -18,6 +18,12 @@ function HomePageNavBar() {
                     Contact Us
                 </NavLink>
             </button>
+            <button className="homePageButton">
+                <NavLink to="/news">
+                    News
+                    </NavLink>
+
+            </button>
         </>
     )
 }

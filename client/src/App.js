@@ -7,6 +7,7 @@ import ProfilePage from "./profile/ProfilePage";
 import Episodes from "./homepage/Episodes";
 import About from "./homepage/About";
 import ContactUs from "./homepage/ContactUs";
+import NewsStories from "./homepage/NewsStories";
 
 import {
   Route,
@@ -43,6 +44,7 @@ function App() {
   return (
 
     <div className="App">
+      
       <NavBar handleLogout={handleLogout} user={user}/>
       <div>
         <Routes>
@@ -52,6 +54,7 @@ function App() {
           <Route exact path="/episodes" element={<Episodes />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/contactus" element={<ContactUs />} />
+          <Route exact path="/news" element={<NewsStories />} />
         </Routes>
       </div>
 
