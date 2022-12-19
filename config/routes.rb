@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   post "/sendit", to: "users#send_email"
 
+  get "/featuredepisodes", to: "episodes#featured"
+
   # post "createaccount", to: "users#create"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
