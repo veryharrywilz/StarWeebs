@@ -3,27 +3,31 @@ import { NavLink } from "react-router-dom";
 function HomePageNavBar() {
     return (
         <>
-            <button className="homePageButton">
+        <br/>
+        <br/>
+            
                 <NavLink to="/episodes">
-                    Episodes
+                <button className="homePageButton">Episodes </button>
                 </NavLink>
-            </button>
-            <button className="homePageButton">
+           
+            
                 <NavLink to="/about">
-                    About
+                <button className="homePageButton">About</button>
                 </NavLink>
-            </button>
-            <button className="homePageButton">
+            
+            
                 <NavLink to="/contactus">
+                    <button className="homePageButton">
                     Contact Us
+                    </button>
                 </NavLink>
-            </button>
-            <button className="homePageButton">
+            
+            
                 <NavLink to="/news">
-                    News
+                <button className="homePageButton">News </button>
                     </NavLink>
 
-            </button>
+          
         </>
     )
 }

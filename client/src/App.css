@@ -23,7 +23,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  /* color: white; */
 }
 
 .App-link {
@@ -31,8 +31,10 @@
 }
 
 .SWLogo {
-  width: 100px;
-  align-items: left;
+  max-width: 99.3%;
+  border-style: solid;
+  border-width: 3px;
+  border-color: rgb(50, 50, 157);
 }
 
 
@@ -65,11 +67,27 @@
 
 /* HOME PAGE STYLING */
 .homePageButton {
-  width: 150px;
+  width: 25%;
   height: 50px;
   background-color: rgb(243, 243, 41);
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  /* color: black; */
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-weight: bold;
+  font-size: large;
+  color: black;
+  border-style: solid;
+  border-color: black;
+  cursor: pointer;
+}
+
+.homePageButton:hover {
+  text-decoration: underline;
+}
+
+.pageHeader {
+text-align: left;
+margin-left: 50px;
+width: 600px;
+text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
 /* LOGIN PAGE STYLING */
@@ -86,22 +104,28 @@
 
 /* PROFILE STYLING */
 .profilePicture {
+  display: inline-block;
   width: 200px;
   border-style: solid;
   border-color: rgb(243, 243, 41);
   border-radius: 8px;
   text-align: left;
-  float: right;
-  position: absolute;
+  float: left;
+  /* position: absolute; */
   right: 2px;
 }
 
 /* NAVBAR */
 
 .navBar {
-  position: absolute;
+  /* position: absolute;  */
   float: right;
-  margin: 10px;
+
+}
+
+.navBar img {
+  width: 50px;
+  margin: 8px;
 }
 
 
@@ -119,23 +143,78 @@
 
 #harrisonStoryContainer {
  display: inline-block;
- grid-column-start: 2;
+ grid-column-start: 1;
+ text-align: center;
  /* margin: 20px; */
 }
 
+#harrisonStoryContainer h2 {
+  display: inline-block;
+  grid-column-start: 1;
+  text-align: center;
+  text-decoration: underline;
+  /* margin: 20px; */
+ }
+
 #mollyStoryContainer {
   display: inline-block;
-  grid-column-start: 3;
+  grid-column-start: 2;
+}
+
+#mollyStoryContainer h2 {
+  text-align: center;
+  text-decoration: underline;
 }
 
 .harrisonStory {
   border-style: solid;
+  border-radius: 8px;
   width: 400px;
   background-color: black;
+  border-color: rgb(234, 215, 4);
+  color: rgb(234, 215, 4);
+  font-family: 'Pathway Gothic One', sans-serif;
+  margin: 10px 
+}
+
+.harrisonStory a {
+  color: rgb(234, 215, 4);
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-weight: bold;
+}
+
+.harrisonStory img {
+  border-style: solid;
+  border-radius: 8px;
 }
 
 .mollyStory {
   border-style: solid;
+  border-radius: 8px;
   width: 400px;
   background-color: rgb(218, 143, 3);
+  border-color: black;
+  color: black;
+  font-family: 'Pathway Gothic One', sans-serif;
+  margin: 10px
+}
+
+.mollyStory a {
+  color: black;
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-weight: bold;
+}
+
+.mollyStory img {
+border-style: solid;
+border-radius: 8px;
+}
+
+.previewImage {
+  height: 150px;
+}
+
+
+.contactForm {
+  text-align: center;
 }

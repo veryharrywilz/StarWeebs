@@ -1,19 +1,30 @@
 import { NavLink } from "react-router-dom";
+import logoutIcon from "../images/LogoutIcon.png"
+import profileIcon from "../images/ProfileIcon.png"
+import homeIcon from "../images/HomeIcon.png"
+import loginIcon from "../images/LoginIcon.png"
 
 function NavBar({ handleLogout, user }) {
+
+
+
   return (
     <div className="navBar">
-      <button>
-        <NavLink to="/">Home</NavLink>
-      </button>
+      
+        <NavLink to="/">
+          <img src={homeIcon}/>
+        </NavLink>
+      
 
       
       {
         user === null ?
 
-          <button>
-            <NavLink to="/login">Login</NavLink>
-          </button>
+          
+            <NavLink to="/login">
+              <img src={loginIcon}/>
+            </NavLink>
+          
 
           : null
       }
@@ -21,13 +32,11 @@ function NavBar({ handleLogout, user }) {
 
       {
         user !== null ?
-          <button>
-            <NavLink to="/profile">Profile</NavLink>
-          </button>
+          <NavLink to="/profile"> <img src={profileIcon}/></NavLink>
           : null
       }
       {user !== null ?
-        <button onClick={e => handleLogout()}>Logout</button>
+        <img src={logoutIcon} onClick={e => handleLogout()} />
         : null
       }
     </div >

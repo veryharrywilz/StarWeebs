@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import EpisodeCard from "./EpisodeCard";
 import HomePageNavBar from "./HomePageNavBar";
+import StarWeebsLogo from "../images/StarWeebLogo.png"
 
 
 function HomePage({ user, loginUser }) {
@@ -27,25 +28,32 @@ function HomePage({ user, loginUser }) {
     const Greeting = () => {
         if (user === null) {
             return (
-                <h1>Hello!</h1>
+                <>
+                
+                <h1 className="pageHeader">Welcome to the Star Weebs Website!</h1>
+                
+                </>
             )
         }
         else if (user.username !== null) {
-            return (<h1>{`Hello ${user.username}`}</h1>)
+            return (<h1 className="pageHeader">Hello {user.username}</h1>)
         }
         else {
             return (
-                <h1>Hello!</h1>
+                <h1 className="pageHeader">Welcome to the Star Weebs Website!</h1>
             )
         }
     }
 
     return (
         <div>
-            <img alt="Star Weebs Logo" className="SWLogo" src="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded400/17651902/17651902-1632697977806-a977aa1f39a8f.jpg" />
+            <br/>
+            <Greeting />
             <br />
             <HomePageNavBar />
-            <Greeting />
+            <br />
+            <br />
+            <img alt="Star Weebs Logo" className="SWLogo" src={StarWeebsLogo} />
             <h2>Featured Episodes</h2>
             <div className="episodeContainer">
                 {featuredEpsElements}

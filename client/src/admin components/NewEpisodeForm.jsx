@@ -1,4 +1,5 @@
 import {useState} from "react"
+import { useNavigate } from "react-router-dom"
 
 function NewEpisodeForm () {
     const [title, setTitle] = useState("")
@@ -6,6 +7,8 @@ function NewEpisodeForm () {
     const [number, setNumber] = useState(null)
     const [link, setLink] = useState("")
     const [featured, setFeatured] = useState(true)
+    let history = useNavigate()
+    
 
     const newEpObj = {
         title: title,
@@ -25,6 +28,8 @@ function NewEpisodeForm () {
         })
         .then(resp => resp.json())
         .then(data => console.log(data))
+        e.target.reset()
+        history('/')
     }
 
 

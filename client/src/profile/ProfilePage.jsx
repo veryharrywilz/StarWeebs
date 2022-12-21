@@ -24,14 +24,14 @@ function ProfilePage({ user }) {
     return (
 
         <>
-
+        <br/>
             {
                 user !== null ?
                     <div>
 
                         <img src={user.avatar} className="profilePicture" />
-
-                        <h2>This is {user.username}'s homepage</h2>
+                        <br/><br/><br/><br/><br/><br/><br/>
+                        <h2>{user.username}</h2>
                         {
                             adminStatus ?
                                 <>

@@ -34,13 +34,16 @@ function NewsStories() {
 
     return(
         <>
-        <h1>News</h1>
+        <br/>
+        <h1 className="pageHeader">News</h1>
         <div className="newsContainer">
             <div id="harrisonStoryContainer">
+                <h2>Star Wars News</h2>
                 {harrisonStoriesElements}
             </div>
 
             <div id="mollyStoryContainer">
+                <h2>Anime News</h2>
                 {mollyStoriesElements}
             </div>
             

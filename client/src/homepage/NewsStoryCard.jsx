@@ -20,7 +20,11 @@ function NewsStoryCard({story, userClass}) {
     return(
         <div className={userClass}>
             <h3>{story.title}</h3>
+            <img className="previewImage" src={story.image}/>
             <p>{story.description}</p>
+            <a href={story.link}>Read more here</a>
+            <br />
+            <br />
         </div>
     )
 }
