@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import AvatarContainer from "./AvatarContainer"
+import { useNavigate } from "react-router-dom"
 
 function Login({ user, loginUser }) {
 
@@ -13,7 +14,7 @@ function Login({ user, loginUser }) {
     const [loginUserName, setLoginUserName] = useState("")
     const [loginPassword, setLoginPassword] = useState("")
     const [loginState, setLoginState] = useState(true)
-
+    let history = useNavigate()
 
 
 
@@ -49,6 +50,7 @@ function Login({ user, loginUser }) {
                 loginUser(data)
             })
         e.target.reset()
+        history("/")
     }
 
     function handleCreateAccount(e) {
@@ -67,7 +69,7 @@ function Login({ user, loginUser }) {
                 console.log("submitted")
             })
 
-        console.log(user)
+        history("/")
     }
 
     function handleNewsClick() {
@@ -81,7 +83,7 @@ function Login({ user, loginUser }) {
     return (
         <div> {loginState ?
             <form onSubmit={handleLogin}>
-                <h3>Have an account? Login!</h3>
+                <h1 className="pageHeader">Have an account? Login!</h1>
                 <p>Username</p>
                 <input type="text" name="loginUsername" onChange={e => setLoginUserName(e.target.value)}></input>
                 <p>Password</p>
@@ -107,7 +109,7 @@ function Login({ user, loginUser }) {
                     <p>Need to create an account? Click here!</p>
                     <button onClick={e => setLoginState(loginState => !loginState)}>Create Account!</button></> :
                     <form onSubmit={handleCreateAccount}>
-                        <h3>Create an Account!</h3>
+                        <h1 className="pageHeader">Create an Account!</h1>
                         <p>Username</p>
                         <input type="text" name="username" onChange={e => setUserName(e.target.value)} />
                         <p>Email address</p>

@@ -24,7 +24,8 @@ const [episodes, setEpisodes] = useState([])
 
     return (
         <div>
-        <h1>Episodes</h1>
+            <br/>
+        <h1 className="pageHeader">Episodes</h1>
         <div className="episodeContainer">
         {episodeElements.reverse()}
         </div>
