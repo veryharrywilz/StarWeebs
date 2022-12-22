@@ -1,9 +1,10 @@
 import {useEffect, useState} from "react"
 import EpisodeCard from "./EpisodeCard"
 
-function Episodes () {
+function Episodes ({user}) {
 
 const [episodes, setEpisodes] = useState([])
+const [epFavs, setEpFavs] = useState([])
 
     useEffect(()=>{
         fetch("/episodes")
@@ -11,10 +12,27 @@ const [episodes, setEpisodes] = useState([])
         .then(data => setEpisodes(data))
     }, [])
 
+
+    useEffect(() => {
+        if (user !== null) {
+            fetch("userfavs")
+            .then(resp => resp.json())
+            .then(data => setEpFavs(data))
+        }
+
+    }, [])
+
+    const usersFavEps = epFavs.map( fav => {
+        return(fav.episode.title)
+    })
+
+
     const episodeElements = episodes.map(episode => {
         if (episodes.length > 0) {
+            let favStatus = usersFavEps.includes(episode.title)
+            console.log(favStatus)
         return(
-            <EpisodeCard episode={episode} key={episode.id}/>
+            <EpisodeCard favStatus={favStatus} user={user} episode={episode} key={episode.id} usersFavEps={usersFavEps}/>
         )
         } else {
             return null

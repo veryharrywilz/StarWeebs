@@ -51,7 +51,7 @@ function App() {
           <Route exact path="/" element={<HomePage user={user} loginUser={loginUser} />}></Route>
           <Route exact path="/login" element={<Login loginUser={loginUser} user={user} />}></Route>
           <Route exact path="/profile" element={<ProfilePage user={user}/>}></Route>
-          <Route exact path="/episodes" element={<Episodes />} />
+          <Route exact path="/episodes" element={<Episodes user={user}/>} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/contactus" element={<ContactUs />} />
           <Route exact path="/news" element={<NewsStories />} />

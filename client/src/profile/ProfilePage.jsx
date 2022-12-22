@@ -2,10 +2,13 @@ import { useEffect, useState } from "react"
 import NewEpisodeForm from "../admin components/NewEpisodeForm"
 import NewEmailForm from "../admin components/NewEmailForm"
 import NewsStoryForm from "../admin components/NewsStoryForm"
+import EpisodeCard from "../homepage/EpisodeCard"
+import ProfileEpisodeCard from "./ProfileEpisodeCard"
 
 function ProfilePage({ user }) {
     const [adminStatus, setAdminStatus] = useState(false)
     const [formDisplay, setFormDisplay] = useState(null)
+    const [favs, setFavs] = useState([])
 
     // function handleClick() {
     //     console.log(adminStatus)
@@ -14,11 +17,21 @@ function ProfilePage({ user }) {
     useEffect(() => {
         if (user !== null) {
             setAdminStatus(user.isAdmin)
+            fetch("userfavs")
+            .then(resp => resp.json())
+            .then(data => setFavs(data))
         }
         else {
             setAdminStatus(false)
         }
     }, [user])
+
+
+    const favsElements = favs.map(fav => {
+            return (
+                <ProfileEpisodeCard user={user} key={fav.episode.title} episode={fav.episode}/>
+            )
+    })
 
 
     return (
@@ -62,6 +75,8 @@ function ProfilePage({ user }) {
 
 
                         : null}
+                        <h2>Your favorite episodes!</h2>
+                        {favsElements}
 
                     </div>
                     : null}

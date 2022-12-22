@@ -16,6 +16,7 @@ function NewEmailForm() {
         })
         .then(resp => resp.json())
         .then(data => console.log(data))
+        e.target.reset()
     }
 
 

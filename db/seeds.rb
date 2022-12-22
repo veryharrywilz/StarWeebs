@@ -28,3 +28,11 @@ news1 = NewsStory.create(title: "The Super Mario Bros Japanese cast is where it'
 news2 = NewsStory.create(title: "'Andor' Is the Best 'Star Wars' Since 'The Last Jedi'", description: 'We know it all took place a long time ago, in a galaxy far, far away. But until "Andor," the franchise was beginning to feel stuck in the past.', link: "https://www.indiewire.com/2022/12/andor-is-the-best-star-wars-since-the-last-jedi-1234790362/", image: "https://www.indiewire.com/wp-content/uploads/2022/12/Andor.jpeg", user_id: 1)
 news3 = NewsStory.create(title: "Disney Reveals First Look at Rosario Dawson's Ahsoka Show", description: "Ahsoka will continue to expand the story of Rosario Dawson's titular Jedi, and the first brief look from the upcoming Disney+ series offered a glimpse of what to expect.", link: "https://thedirect.com/article/ahsoka-rosario-dawson-ahsoka-disney-show-video-look", image: "https://images.thedirect.com/media/photos/ahsoka-f-1.jpg", user_id: 1)
 news4 = NewsStory.create(title: "One Piece Film Red Sails Through Japan Box Office Top 10 for 20 Consecutive Weeks", description: "Despite massive hits like THE FIRST SLAM DUNK and Suzume opening in Japan, One Piece Film Red continues its journey through the Japanese box office with official reports today revealing that the film has now spent 20 consecutive weeks in the top 10, beating the likes of the original Avatar, Weathering With You and Frozen.", link: "https://www.crunchyroll.com/anime-news/2022/12/19/one-piece-film-red-sails-through-japan-box-office-top-10-for-20-consecutive-weeks", image: "https://img1.ak.crunchyroll.com/i/spire2/3cc622bba797a81984c7e437b39bd3461662992599_main.jpg", user_id: 2)
+
+
+puts "seeding favorites..."
+fav1 = Favorite.create(user_id: harrison.id, episode_id: ep2.id)
+fav2 = Favorite.create(user_id: harrison.id, episode_id: ep3.id)
+fav3 = Favorite.create(user_id: harrison.id, episode_id: ep29.id)
+fav4 = Favorite.create(user_id: aj.id, episode_id: ep29.id)
+fav5 = Favorite.create(user_id: molly.id, episode_id: ep3.id)
