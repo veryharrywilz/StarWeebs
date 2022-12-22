@@ -21,7 +21,7 @@ function HomePage({ user, loginUser }) {
 
     const featuredEpsElements = featuredEps.map(episode => {
         return (
-            <EpisodeCard episode={episode} key={episode.title} />
+            <EpisodeCard user={user} episode={episode} key={episode.title} />
         )
     })
 

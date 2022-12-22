@@ -37,7 +37,11 @@ class UsersController < ApplicationController
             subscriber.send_mass_email(subj.values[0], message.values[0])
         end
         render json: subscribers, status: :created
+    end
 
+    def user_favs
+        favorites = Favorite.where(user_id: session[:user_id])
+        render json: favorites, includes: :episode, status: :ok
     end
     
     private 

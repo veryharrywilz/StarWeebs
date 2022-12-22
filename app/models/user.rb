@@ -3,6 +3,8 @@
 
 class User < ApplicationRecord
     has_secure_password
+    has_many :favorites, dependent: :destroy 
+    has_many :episodes, through: :favorites
     require 'sendgrid-ruby'
     include SendGrid
 

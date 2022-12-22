@@ -16,6 +16,12 @@ class EpisodesController < ApplicationController
         render json: featureds, status: :ok 
     end
 
+    def destroy
+        ep = Episode.find(params[:id])
+        ep.destroy
+        head :no_content, status: :gone 
+    end
+
     private
 
     def episode_params
