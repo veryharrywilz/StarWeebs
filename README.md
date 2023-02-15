@@ -1,24 +1,16 @@
-# README
+This is the official website of the Star Weebs podcast! 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This website allows users to follow updates about the Star Weebs podcast, and if the user is an admin, they have the ability to create and update the website. 
 
-Things you may want to cover:
+The website is not live yet, but in order to get the website up and running on a local server, just run the following commands on the command line while in the parent directory:
 
-* Ruby version
+npm install --prefix client
+rails db:seed
+npm start --prefix client
 
-* System dependencies
+&
 
-* Configuration
+bundle install
+rails s
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
